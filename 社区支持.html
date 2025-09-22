@@ -1,0 +1,1090 @@
+html
+	<!DOCTYPE html>
+
+	<html lang="zh-CN">
+
+	<head>
+
+	    <meta charset="UTF-8">
+
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	    <title>OccluPrognos - 社区支持</title>
+
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+	    <style>
+
+	        :root {
+
+	            --primary-color: #4a6baf;
+
+	            --secondary-color: #3a568a;
+
+	            --border-color: #dee2e6;
+
+	            --bg-light: #f8f9fa;
+
+	        }
+
+	        body {
+
+	            font-family: 'Noto Sans SC', sans-serif;
+
+	            background-color: #f8f9fa;
+
+	            color: #333;
+
+	        }
+
+	        .navbar {
+
+	            background-color: var(--primary-color);
+
+	            padding: 1rem 0;
+
+	            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+	        }
+
+	        .navbar-brand {
+
+	            font-weight: 700;
+
+	            font-size: 1.5rem;
+
+	            color: white !important;
+
+	        }
+
+	        .nav-link {
+
+	            color: rgba(255,255,255,0.9) !important;
+
+	            margin: 0 0.5rem;
+
+	            font-weight: 500;
+
+	        }
+
+	        .nav-link.active {
+
+	            color: white !important;
+
+	            border-bottom: 2px solid white;
+
+	        }
+
+	        .community-card {
+
+	            background: white;
+
+	            border-radius: 10px;
+
+	            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+	            padding: 1.5rem;
+
+	            margin-bottom: 1.5rem;
+
+	        }
+
+	        .topic-card {
+
+	            border-bottom: 1px solid var(--border-color);
+
+	            padding: 1rem 0;
+
+	        }
+
+	        .topic-card:last-child {
+
+	            border-bottom: none;
+
+	        }
+
+	        .topic-title {
+
+	            font-weight: 700;
+
+	            color: var(--primary-color);
+
+	            margin-bottom: 0.5rem;
+
+	        }
+
+	        .topic-meta {
+
+	            font-size: 0.9rem;
+
+	            color: #6c757d;
+
+	        }
+
+	        .official-reply {
+
+	            background-color: #e3f2fd;
+
+	            border-left: 3px solid var(--primary-color);
+
+	            padding: 0.8rem 1rem;
+
+	            margin-top: 0.8rem;
+
+	            border-radius: 5px;
+
+	        }
+
+	        .event-card {
+
+	            background: white;
+
+	            border-radius: 10px;
+
+	            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+	            overflow: hidden;
+
+	            margin-bottom: 1.5rem;
+
+	        }
+
+	        .event-date {
+
+	            background-color: var(--primary-color);
+
+	            color: white;
+
+	            text-align: center;
+
+	            padding: 0.5rem;
+
+	        }
+
+	        .event-day {
+
+	            font-size: 1.5rem;
+
+	            font-weight: 700;
+
+	            line-height: 1.2;
+
+	        }
+
+	        .event-month {
+
+	            font-size: 0.9rem;
+
+	        }
+
+	        .event-body {
+
+	            padding: 1rem;
+
+	        }
+
+	        .btn-primary {
+
+	            background-color: var(--primary-color);
+
+	            border: none;
+
+	            padding: 0.5rem 1rem;
+
+	        }
+
+	        .btn-primary:hover {
+
+	            background-color: var(--secondary-color);
+
+	        }
+
+	        .btn-outline-primary {
+
+	            color: var(--primary-color);
+
+	            border-color: var(--primary-color);
+
+	        }
+
+	        .btn-outline-primary:hover {
+
+	            background-color: var(--primary-color);
+
+	            color: white;
+
+	        }
+
+	        .nav-tabs .nav-link {
+
+	            color: #333;
+
+	            font-weight: 500;
+
+	        }
+
+	        .nav-tabs .nav-link.active {
+
+	            color: var(--primary-color);
+
+	            font-weight: 700;
+
+	        }
+
+	        .reward-tag {
+
+	            background-color: #ffc107;
+
+	            color: #333;
+
+	            padding: 0.2rem 0.5rem;
+
+	            border-radius: 10px;
+
+	            font-size: 0.8rem;
+
+	            margin-left: 0.5rem;
+
+	        }
+
+	        .footer {
+
+	            background-color: #343a40;
+
+	            color: rgba(255,255,255,0.8);
+
+	            padding: 2rem 0;
+
+	            margin-top: 3rem;
+
+	        }
+
+	        .footer a {
+
+	            color: rgba(255,255,255,0.8);
+
+	            text-decoration: none;
+
+	        }
+
+	        .footer a:hover {
+
+	            color: white;
+
+	        }
+
+	        .community-header {
+
+	            background-color: var(--primary-color);
+
+	            color: white;
+
+	            padding: 2rem;
+
+	            border-radius: 10px;
+
+	            margin-bottom: 2rem;
+
+	            background-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+
+	        }
+
+	        .悬赏问答-tag {
+
+	            background-color: #dc3545;
+
+	            color: white;
+
+	            padding: 0.2rem 0.5rem;
+
+	            border-radius: 10px;
+
+	            font-size: 0.8rem;
+
+	            margin-left: 0.5rem;
+
+	        }
+
+	    </style>
+
+	</head>
+
+	<body>
+
+	    <!-- 导航栏 -->
+
+	    <nav class="navbar navbar-expand-lg">
+
+	        <div class="container">
+
+	            <a class="navbar-brand" href="首页.html">OccluPrognos</a>
+
+	            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+	                <span class="navbar-toggler-icon"></span>
+
+	            </button>
+
+	            <div class="collapse navbar-collapse" id="navbarNav">
+
+	                <ul class="navbar-nav me-auto">
+
+	                    <li class="nav-item"><a class="nav-link" href="首页.html">首页</a></li>
+
+	                    <li class="nav-item"><a class="nav-link" href="检测中心.html">检测中心</a></li>
+
+	                    <li class="nav-item"><a class="nav-link" href="案例库.html">案例库</a></li>
+
+	                    <li class="nav-item"><a class="nav-link" href="教程中心.html">教程中心</a></li>
+
+	                    <li class="nav-item"><a class="nav-link" href="个人中心.html">个人中心</a></li>
+
+	                    <li class="nav-item"><a class="nav-link active" href="社区支持.html">社区支持</a></li>
+
+	                </ul>
+
+	                <div class="d-flex align-items-center">
+
+	                    <button class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#askModal">
+
+	                        <i class="bi bi-question-circle"></i> 提问
+
+	                    </button>
+
+	                    <div class="dropdown">
+
+	                        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+
+	                            <i class="bi bi-person-circle"></i> 张医生
+
+	                        </button>
+
+	                        <ul class="dropdown-menu">
+
+	                            <li><a class="dropdown-item" href="个人中心.html">个人中心</a></li>
+
+	                            <li><a class="dropdown-item" href="#">我的积分: 280</a></li>
+
+	                            <li><hr class="dropdown-divider"></li>
+
+	                            <li><a class="dropdown-item" href="#">退出登录</a></li>
+
+	                        </ul>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </nav>
+
+	 
+
+	    <!-- 主内容区 -->
+
+	    <main class="container my-4">
+
+	        <!-- 社区欢迎区 -->
+
+	        <div class="community-header">
+
+	            <div class="row align-items-center">
+
+	                <div class="col-md-8">
+
+	                    <h2>医工交互社区</h2>
+
+	                    <p class="mb-0">与全国口腔专家和技术团队实时交流，共同提升诊断水平</p>
+
+	                </div>
+
+	                <div class="col-md-4 text-md-end">
+
+	                    <button class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#challengeModal">
+
+	                        <i class="bi bi-trophy"></i> 病例挑战赛
+
+	                    </button>
+
+	                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#askModal">
+
+	                        <i class="bi bi-plus-circle"></i> 发起讨论
+
+	                    </button>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	 
+
+	        <div class="row">
+
+	            <div class="col-lg-8">
+
+	                <!-- 社区导航选项卡 -->
+
+	                <ul class="nav nav-tabs mb-4">
+
+	                    <li class="nav-item">
+
+	                        <a class="nav-link active" href="#topics" data-bs-toggle="tab">热门话题</a>
+
+	                    </li>
+
+	                    <li class="nav-item">
+
+	                        <a class="nav-link" href="#myQuestions" data-bs-toggle="tab">我的提问</a>
+
+	                    </li>
+
+	                    <li class="nav-item">
+
+	                        <a class="nav-link" href="#expertQA" data-bs-toggle="tab">专家答疑</a>
+
+	                    </li>
+
+	                </ul>
+
+	 
+
+	                <!-- 选项卡内容 -->
+
+	                <div class="tab-content">
+
+	                    <!-- 热门话题 -->
+
+	                    <div class="tab-pane fade show active" id="topics">
+
+	                        <div class="community-card">
+
+	                            <div class="d-flex justify-content-between align-items-center mb-3">
+
+	                                <h4>近期热门讨论</h4>
+
+	                                <button class="btn btn-sm btn-outline-primary">
+
+	                                    <i class="bi bi-arrow-repeat"></i> 刷新
+
+	                                </button>
+
+	                            </div>
+
+	 
+
+	                            <!-- 话题1 -->
+
+	                            <div class="topic-card">
+
+	                                <div class="d-flex justify-content-between align-items-start">
+
+	                                    <div>
+
+	                                        <div class="d-flex align-items-center">
+
+	                                            <h5 class="topic-title">碰撞检测算法优化建议</h5>
+
+	                                            <span class="悬赏问答-tag">悬赏50积分</span>
+
+	                                        </div>
+
+	                                        <p class="topic-meta">发起人: 李医生 | 2024-03-15 10:20 | 浏览: 245 | 回复: 12</p>
+
+	                                    </div>
+
+	                                    <button class="btn btn-sm btn-primary">
+
+	                                        <i class="bi bi-chat-left"></i> 参与
+
+	                                    </button>
+
+	                                </div>
+
+	                                <div class="mt-2">
+
+	                                    <p>建议将默认碰撞阈值从1.2mm调整为0.8mm，是否会影响检测灵敏度？</p>
+
+	                                </div>
+
+	                                <div class="official-reply">
+
+	                                    <strong><i class="bi bi-check-circle-fill"></i> 技术团队回复:</strong>
+
+	                                    <p class="mb-0">该建议已纳入v2.4.0更新计划，预计下月发布。调整后将增加"高灵敏度模式"选项供用户选择。</p>
+
+	                                </div>
+
+	                            </div>
+
+	 
+
+	                            <!-- 话题2 -->
+
+	                            <div class="topic-card">
+
+	                                <div class="d-flex justify-content-between align-items-start">
+
+	                                    <div>
+
+	                                        <div class="d-flex align-items-center">
+
+	                                            <h5 class="topic-title">阻生牙检测的特殊案例分享</h5>
+
+	                                        </div>
+
+	                                        <p class="topic-meta">发起人: 王主任 | 2024-03-14 15:30 | 浏览: 189 | 回复: 8</p>
+
+	                                    </div>
+
+	                                    <button class="btn btn-sm btn-primary">
+
+	                                        <i class="bi bi-chat-left"></i> 参与
+
+	                                    </button>
+
+	                                </div>
+
+	                                <div class="mt-2">
+
+	                                    <p>分享一例复杂下颌第三磨牙阻生案例，碰撞距离仅0.3mm的检测与处理经验...</p>
+
+	                                </div>
+
+	                            </div>
+
+	                        </div>
+
+	                    </div>
+
+	 
+
+	                    <!-- 我的提问 -->
+
+	                    <div class="tab-pane fade" id="myQuestions">
+
+	                        <div class="community-card">
+
+	                            <h4>我的提问</h4>
+
+	                            <div class="alert alert-info">
+
+	                                <i class="bi bi-info-circle"></i> 您尚未发起任何讨论，点击右上角"发起讨论"按钮开始交流
+
+	                            </div>
+
+	                        </div>
+
+	                    </div>
+
+	 
+
+	                    <!-- 专家答疑 -->
+
+	                    <div class="tab-pane fade" id="expertQA">
+
+	                        <div class="community-card">
+
+	                            <h4>专家答疑时间表</h4>
+
+	                            <div class="table-responsive">
+
+	                                <table class="table table-hover">
+
+	                                    <thead>
+
+	                                        <tr>
+
+	                                            <th>专家</th>
+
+	                                            <th>专业领域</th>
+
+	                                            <th>答疑时间</th>
+
+	                                            <th>预约</th>
+
+	                                        </tr>
+
+	                                    </thead>
+
+	                                    <tbody>
+
+	                                        <tr>
+
+	                                            <td>张教授</td>
+
+	                                            <td>口腔修复学</td>
+
+	                                            <td>每周三 14:00-16:00</td>
+
+	                                            <td><button class="btn btn-sm btn-outline-primary">预约</button></td>
+
+	                                        </tr>
+
+	                                        <tr>
+
+	                                            <td>李主任</td>
+
+	                                            <td>口腔正畸学</td>
+
+	                                            <td>每周五 09:00-11:00</td>
+
+	                                            <td><button class="btn btn-sm btn-outline-primary">预约</button></td>
+
+	                                        </tr>
+
+	                                    </tbody>
+
+	                                </table>
+
+	                            </div>
+
+	                        </div>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	 
+
+	            <!-- 右侧边栏 -->
+
+	            <div class="col-lg-4">
+
+	                <!-- 活动日历 -->
+
+	                <div class="community-card">
+
+	                    <h4><i class="bi bi-calendar-event"></i> 直播预告</h4>
+
+	                    
+
+	                    <div class="event-card">
+
+	                        <div class="row g-0">
+
+	                            <div class="col-3">
+
+	                                <div class="event-date">
+
+	                                    <div class="event-day">20</div>
+
+	                                    <div class="event-month">三月</div>
+
+	                                </div>
+
+	                            </div>
+
+	                            <div class="col-9">
+
+	                                <div class="event-body">
+
+	                                    <h5>阻生牙检测的10个常见误区</h5>
+
+	                                    <p class="mb-1"><small>主讲人: XX大学口腔医学院王教授</small></p>
+
+	                                    <p class="text-muted small mb-2"><i class="bi bi-clock"></i> 周三 20:00-21:30</p>
+
+	                                    <button class="btn btn-sm btn-primary w-100">
+
+	                                        <i class="bi bi-bell"></i> 提醒我
+
+	                                    </button>
+
+	                                </div>
+
+	                            </div>
+
+	                        </div>
+
+	                    </div>
+
+	                    
+
+	                    <div class="event-card mt-3">
+
+	                        <div class="row g-0">
+
+	                            <div class="col-3">
+
+	                                <div class="event-date">
+
+	                                    <div class="event-day">25</div>
+
+	                                    <div class="event-month">三月</div>
+
+	                                </div>
+
+	                            </div>
+
+	                            <div class="col-9">
+
+	                                <div class="event-body">
+
+	                                    <h5>碰撞参数设置实战工作坊</h5>
+
+	                                    <p class="mb-1"><small>主讲人: 系统研发团队</small></p>
+
+	                                    <p class="text-muted small mb-2"><i class="bi bi-clock"></i> 周一 15:00-16:30</p>
+
+	                                    <button class="btn btn-sm btn-outline-primary w-100">
+
+	                                        <i class="bi bi-calendar-plus"></i> 预约
+
+	                                    </button>
+
+	                                </div>
+
+	                            </div>
+
+	                        </div>
+
+	                    </div>
+
+	                </div>
+
+	 
+
+	                <!-- 社区规则 -->
+
+	                <div class="community-card">
+
+	                    <h4><i class="bi bi-info-circle"></i> 社区规则</h4>
+
+	                    <ul class="small text-muted">
+
+	                        <li>禁止发布医疗广告或推销信息</li>
+
+	                        <li>尊重他人观点，禁止人身攻击</li>
+
+	                        <li>医疗相关讨论需遵守《执业医师法》</li>
+
+	                        <li>举报违规内容可获得10积分奖励</li>
+
+	                    </ul>
+
+	                    <button class="btn btn-sm btn-outline-danger w-100 mt-2" data-bs-toggle="modal" data-bs-target="#reportModal">
+
+	                        <i class="bi bi-flag"></i> 举报入口
+
+	                    </button>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </main>
+
+	 
+
+	    <!-- 页脚 -->
+
+	    <footer class="footer">
+
+	        <div class="container">
+
+	            <div class="row">
+
+	                <div class="col-md-4 mb-4">
+
+	                    <h5 class="text-white mb-3">OccluPrognos</h5>
+
+	                    <p class="mb-2">©2024 咬合预后通智能碰撞检测系统</p>
+
+	                    <a href="#">使用条款</a> | <a href="#">隐私政策</a>
+
+	                </div>
+
+	                <div class="col-md-4 mb-4">
+
+	                    <h5 class="text-white mb-3">社区规范</h5>
+
+	                    <p><a href="#">内容发布准则</a></p>
+
+	                    <p><a href="#">积分获取规则</a></p>
+
+	                </div>
+
+	                <div class="col-md-4">
+
+	                    <h5 class="text-white mb-3">联系我们</h5>
+
+	                    <p>社区管理: community@occluprognos.com</p>
+
+	                    <p>技术支持: support@occluprognos.com</p>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </footer>
+
+	 
+
+	    <!-- 提问模态框 -->
+
+	    <div class="modal fade" id="askModal" tabindex="-1">
+
+	        <div class="modal-dialog">
+
+	            <div class="modal-content">
+
+	                <div class="modal-header">
+
+	                    <h5 class="modal-title">发起新讨论</h5>
+
+	                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+	                </div>
+
+	                <div class="modal-body">
+
+	                    <div class="mb-3">
+
+	                        <label class="form-label">讨论标题</label>
+
+	                        <input type="text" class="form-control" placeholder="例如：关于碰撞阈值设置的建议">
+
+	                    </div>
+
+	                    <div class="mb-3">
+
+	                        <label class="form-label">详细内容</label>
+
+	                        <textarea class="form-control" rows="5" placeholder="请详细描述您的问题或建议..."></textarea>
+
+	                    </div>
+
+	                    <div class="form-check mb-3">
+
+	                        <input class="form-check-input" type="checkbox" id="悬赏问答">
+
+	                        <label class="form-check-label" for="悬赏问答">
+
+	                            悬赏问答 (消耗50积分获得优先回复)
+
+	                        </label>
+
+	                    </div>
+
+	                    <div class="d-flex justify-content-between">
+
+	                        <span class="text-muted small">当前积分: 280</span>
+
+	                        <button class="btn btn-primary">发布讨论</button>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </div>
+
+	 
+
+	    <!-- 病例挑战赛模态框 -->
+
+	    <div class="modal fade" id="challengeModal" tabindex="-1">
+
+	        <div class="modal-dialog">
+
+	            <div class="modal-content">
+
+	                <div class="modal-header">
+
+	                    <h5 class="modal-title">月度病例挑战赛</h5>
+
+	                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+	                </div>
+
+	                <div class="modal-body">
+
+	                    <div class="alert alert-warning">
+
+	                        <h5><i class="bi bi-trophy"></i> 本期挑战</h5>
+
+	                        <p class="mb-0">复杂阻生牙检测方案优化 - 碰撞距离仅0.5mm的挑战案例</p>
+
+	                    </div>
+
+	                    <div class="mb-3">
+
+	                        <label class="form-label">您的解决方案</label>
+
+	                        <textarea class="form-control" rows="4" placeholder="请描述您的检测参数设置和处理建议..."></textarea>
+
+	                    </div>
+
+	                    <div class="mb-3">
+
+	                        <label class="form-label">附加说明</label>
+
+	                        <input type="file" class="form-control">
+
+	                    </div>
+
+	                    <div class="d-grid">
+
+	                        <button class="btn btn-warning">提交参赛方案</button>
+
+	                    </div>
+
+	                    <div class="text-center mt-3 text-muted small">
+
+	                        <p>截止日期: 2024-03-31</p>
+
+	                        <p>优胜者将获得100系统使用时长奖励</p>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </div>
+
+	 
+
+	    <!-- 举报模态框 -->
+
+	    <div class="modal fade" id="reportModal" tabindex="-1">
+
+	        <div class="modal-dialog">
+
+	            <div class="modal-content">
+
+	                <div class="modal-header">
+
+	                    <h5 class="modal-title">举报违规内容</h5>
+
+	                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+	                </div>
+
+	                <div class="modal-body">
+
+	                    <div class="mb-3">
+
+	                        <label class="form-label">违规内容链接</label>
+
+	                        <input type="text" class="form-control" placeholder="粘贴违规讨论的链接">
+
+	                    </div>
+
+	                    <div class="mb-3">
+
+	                        <label class="form-label">违规类型</label>
+
+	                        <select class="form-select">
+
+	                            <option>广告推销</option>
+
+	                            <option>人身攻击</option>
+
+	                            <option>违规医疗建议</option>
+
+	                            <option>其他违规行为</option>
+
+	                        </select>
+
+	                    </div>
+
+	                    <div class="mb-3">
+
+	                        <label class="form-label">详细说明</label>
+
+	                        <textarea class="form-control" rows="3" placeholder="请描述违规情况..."></textarea>
+
+	                    </div>
+
+	                    <div class="d-grid">
+
+	                        <button class="btn btn-danger">提交举报</button>
+
+	                    </div>
+
+	                    <div class="text-center mt-3 text-muted small">
+
+	                        <p>我们承诺在24小时内处理有效举报</p>
+
+	                        <p>成功举报可获得10积分奖励</p>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </div>
+
+	 
+
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+	    <script>
+
+	        // 初始化工具提示
+
+	        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+
+	        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+
+	            return new bootstrap.Tooltip(tooltipTriggerEl);
+
+	        });
+
+	        
+
+	        // 悬赏问答标签提示
+
+	        document.querySelector('.悬赏问答-tag').addEventListener('mouseenter', function() {
+
+	            this.setAttribute('data-bs-toggle', 'tooltip');
+
+	            this.setAttribute('title', '消耗50积分获得优先回复');
+
+	        });
+
+	        
+
+	        // 积分不足提示
+
+	        document.querySelector('#悬赏问答').addEventListener('change', function() {
+
+	            if (this.checked && 280 < 50) { // 假设当前积分是280
+
+	                alert('您的积分不足，无法发起悬赏问答');
+
+	                this.checked = false;
+
+	            }
+
+	        });
+
+	    </script>
+
+	</body>
+
+	</html>

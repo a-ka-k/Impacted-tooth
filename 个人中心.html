@@ -1,0 +1,946 @@
+html
+	<!DOCTYPE html>
+
+	<html lang="zh-CN">
+
+	<head>
+
+	    <meta charset="UTF-8">
+
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	    <title>OccluPrognos - 个人中心</title>
+
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+	    <style>
+
+	        :root {
+
+	            --primary-color: #4a6baf;
+
+	            --secondary-color: #3a568a;
+
+	            --storage-used: #6c757d;
+
+	            --storage-free: #28a745;
+
+	            --storage-pro: #ffc107;
+
+	        }
+
+	        body {
+
+	            font-family: 'Noto Sans SC', sans-serif;
+
+	            background-color: #f8f9fa;
+
+	            color: #333;
+
+	        }
+
+	        .navbar {
+
+	            background-color: var(--primary-color);
+
+	            padding: 1rem 0;
+
+	            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+	        }
+
+	        .navbar-brand {
+
+	            font-weight: 700;
+
+	            font-size: 1.5rem;
+
+	            color: white !important;
+
+	        }
+
+	        .nav-link {
+
+	            color: rgba(255,255,255,0.9) !important;
+
+	            margin: 0 0.5rem;
+
+	            font-weight: 500;
+
+	        }
+
+	        .nav-link.active {
+
+	            color: white !important;
+
+	            border-bottom: 2px solid white;
+
+	        }
+
+	        .dashboard-card {
+
+	            background: white;
+
+	            border-radius: 10px;
+
+	            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+	            padding: 1.5rem;
+
+	            margin-bottom: 1.5rem;
+
+	            height: 100%;
+
+	        }
+
+	        .dashboard-card h4 {
+
+	            color: var(--primary-color);
+
+	            margin-bottom: 1.5rem;
+
+	            font-weight: 700;
+
+	        }
+
+	        .storage-bar {
+
+	            height: 20px;
+
+	            background-color: #e9ecef;
+
+	            border-radius: 10px;
+
+	            overflow: hidden;
+
+	            margin: 1rem 0;
+
+	        }
+
+	        .storage-used {
+
+	            height: 100%;
+
+	            background-color: var(--storage-used);
+
+	            width: 24%;
+
+	            display: flex;
+
+	            align-items: center;
+
+	            justify-content: flex-end;
+
+	            color: white;
+
+	            font-size: 0.8rem;
+
+	            padding-right: 0.5rem;
+
+	        }
+
+	        .storage-free {
+
+	            height: 100%;
+
+	            background-color: var(--storage-free);
+
+	            width: 76%;
+
+	        }
+
+	        .storage-pro .storage-used {
+
+	            background-color: var(--storage-pro);
+
+	            width: 100%;
+
+	        }
+
+	        .storage-pro .storage-free {
+
+	            display: none;
+
+	        }
+
+	        .achievement-badge {
+
+	            background-color: #f8f9fa;
+
+	            border-radius: 50%;
+
+	            width: 60px;
+
+	            height: 60px;
+
+	            display: flex;
+
+	            align-items: center;
+
+	            justify-content: center;
+
+	            margin-right: 1rem;
+
+	            border: 2px solid var(--primary-color);
+
+	        }
+
+	        .permission-card {
+
+	            background: white;
+
+	            border-radius: 10px;
+
+	            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+	            padding: 1.5rem;
+
+	            margin-bottom: 1.5rem;
+
+	        }
+
+	        .permission-card h4 {
+
+	            color: var(--primary-color);
+
+	            margin-bottom: 1.5rem;
+
+	            font-weight: 700;
+
+	        }
+
+	        .btn-primary {
+
+	            background-color: var(--primary-color);
+
+	            border: none;
+
+	            padding: 0.5rem 1rem;
+
+	        }
+
+	        .btn-primary:hover {
+
+	            background-color: var(--secondary-color);
+
+	        }
+
+	        .btn-outline-primary {
+
+	            color: var(--primary-color);
+
+	            border-color: var(--primary-color);
+
+	        }
+
+	        .btn-outline-primary:hover {
+
+	            background-color: var(--primary-color);
+
+	            color: white;
+
+	        }
+
+	        .nav-tabs .nav-link {
+
+	            color: #333;
+
+	            font-weight: 500;
+
+	        }
+
+	        .nav-tabs .nav-link.active {
+
+	            color: var(--primary-color);
+
+	            font-weight: 700;
+
+	        }
+
+	        .log-item {
+
+	            padding: 1rem;
+
+	            border-bottom: 1px solid #eee;
+
+	            font-size: 0.9rem;
+
+	        }
+
+	        .log-item:last-child {
+
+	            border-bottom: none;
+
+	        }
+
+	        .footer {
+
+	            background-color: #343a40;
+
+	            color: rgba(255,255,255,0.8);
+
+	            padding: 2rem 0;
+
+	            margin-top: 3rem;
+
+	        }
+
+	        .footer a {
+
+	            color: rgba(255,255,255,0.8);
+
+	            text-decoration: none;
+
+	        }
+
+	        .footer a:hover {
+
+	            color: white;
+
+	        }
+
+	        .user-welcome {
+
+	            background-color: var(--primary-color);
+
+	            color: white;
+
+	            padding: 2rem;
+
+	            border-radius: 10px;
+
+	            margin-bottom: 2rem;
+
+	            background-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+
+	        }
+
+	    </style>
+
+	</head>
+
+	<body>
+
+	    <!-- 导航栏 -->
+
+	    <nav class="navbar navbar-expand-lg">
+
+	        <div class="container">
+
+	            <a class="navbar-brand" href="首页.html">OccluPrognos</a>
+
+	            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+	                <span class="navbar-toggler-icon"></span>
+
+	            </button>
+
+	            <div class="collapse navbar-collapse" id="navbarNav">
+
+	                <ul class="navbar-nav me-auto">
+
+	                    <li class="nav-item"><a class="nav-link" href="首页.html">首页</a></li>
+
+	                    <li class="nav-item"><a class="nav-link" href="检测中心.html">检测中心</a></li>
+
+	                    <li class="nav-item"><a class="nav-link" href="案例库.html">案例库</a></li>
+
+	                    <li class="nav-item"><a class="nav-link" href="教程中心.html">教程中心</a></li>
+
+	                    <li class="nav-item"><a class="nav-link active" href="个人中心.html">个人中心</a></li>
+
+	                    <li class="nav-item"><a class="nav-link" href="社区支持.html">社区支持</a></li>
+
+	                </ul>
+
+	                <div class="d-flex align-items-center">
+
+	                    <div class="dropdown">
+
+	                        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+
+	                            <i class="bi bi-person-circle"></i> 张医生
+
+	                        </button>
+
+	                        <ul class="dropdown-menu">
+
+	                            <li><a class="dropdown-item" href="#">个人资料</a></li>
+
+	                            <li><a class="dropdown-item" href="#">切换账户</a></li>
+
+	                            <li><hr class="dropdown-divider"></li>
+
+	                            <li><a class="dropdown-item" href="#">退出登录</a></li>
+
+	                        </ul>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </nav>
+
+	 
+
+	    <!-- 主内容区 -->
+
+	    <main class="container my-4">
+
+	        <!-- 用户欢迎区 -->
+
+	        <div class="user-welcome">
+
+	            <div class="row align-items-center">
+
+	                <div class="col-md-8">
+
+	                    <h2>下午好，张医生</h2>
+
+	                    <p class="mb-0">您今天还有3项检测任务待完成 | 最近登录：2024-03-15 09:30</p>
+
+	                </div>
+
+	                <div class="col-md-4 text-md-end">
+
+	                    <button class="btn btn-light me-2">
+
+	                        <i class="bi bi-bell"></i> 消息(2)
+
+	                    </button>
+
+	                    <button class="btn btn-warning">
+
+	                        <i class="bi bi-trophy"></i> 成就中心
+
+	                    </button>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	 
+
+	        <!-- 数据仪表盘 -->
+
+	        <div class="row mb-4">
+
+	            <div class="col-lg-4">
+
+	                <div class="dashboard-card">
+
+	                    <h4><i class="bi bi-clipboard-data"></i> 检测历史</h4>
+
+	                    <div class="d-flex justify-content-between mb-3">
+
+	                        <span>近30天检测总数</span>
+
+	                        <span class="fw-bold">58例</span>
+
+	                    </div>
+
+	                    <div class="progress mb-2">
+
+	                        <div class="progress-bar bg-danger" style="width: 12%"></div>
+
+	                        <div class="progress-bar bg-warning" style="width: 28%"></div>
+
+	                        <div class="progress-bar bg-success" style="width: 60%"></div>
+
+	                    </div>
+
+	                    <div class="d-flex justify-content-between small text-muted">
+
+	                        <span><i class="bi bi-circle-fill text-danger"></i> 高风险(12%)</span>
+
+	                        <span><i class="bi bi-circle-fill text-warning"></i> 中风险(28%)</span>
+
+	                        <span><i class="bi bi-circle-fill text-success"></i> 低风险(60%)</span>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	            <div class="col-lg-4">
+
+	                <div class="dashboard-card">
+
+	                    <h4><i class="bi bi-folder"></i> 模型存储</h4>
+
+	                    <div class="storage-bar">
+
+	                        <div class="storage-used">2.4GB</div>
+
+	                        <div class="storage-free"></div>
+
+	                    </div>
+
+	                    <div class="d-flex justify-content-between">
+
+	                        <span>已用空间</span>
+
+	                        <span class="fw-bold">2.4GB/10GB</span>
+
+	                    </div>
+
+	                    <div class="mt-3 small text-muted">
+
+	                        <p>学术版用户享有无限存储空间</p>
+
+	                        <button class="btn btn-sm btn-outline-primary">升级到学术版</button>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	            <div class="col-lg-4">
+
+	                <div class="dashboard-card">
+
+	                    <h4><i class="bi bi-trophy"></i> 成就系统</h4>
+
+	                    <div class="d-flex align-items-center mb-3">
+
+	                        <div class="achievement-badge">
+
+	                            <i class="bi bi-lightning" style="font-size: 1.5rem;"></i>
+
+	                        </div>
+
+	                        <div>
+
+	                            <h5 class="mb-0">检测达人</h5>
+
+	                            <p class="small text-muted mb-0">连续登录7天</p>
+
+	                        </div>
+
+	                    </div>
+
+	                    <div class="progress mb-2">
+
+	                        <div class="progress-bar" style="width: 100%"></div>
+
+	                    </div>
+
+	                    <div class="text-end">
+
+	                        <span class="small text-muted">1/1 任务完成</span>
+
+	                    </div>
+
+	                    <div class="mt-3">
+
+	                        <button class="btn btn-sm btn-outline-primary" disabled>
+
+	                            已获得 (2024-03-14)
+
+	                        </button>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	 
+
+	        <!-- 权限管理选项卡 -->
+
+	        <div class="permission-card">
+
+	            <ul class="nav nav-tabs" id="permissionTabs" role="tablist">
+
+	                <li class="nav-item" role="presentation">
+
+	                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#team" type="button">团队账户</button>
+
+	                </li>
+
+	                <li class="nav-item" role="presentation">
+
+	                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sharing" type="button">数据共享</button>
+
+	                </li>
+
+	                <li class="nav-item" role="presentation">
+
+	                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#backup" type="button">智能备份</button>
+
+	                </li>
+
+	                <li class="nav-item" role="presentation">
+
+	                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#logs" type="button">操作日志</button>
+
+	                </li>
+
+	            </ul>
+
+	            
+
+	            <div class="tab-content mt-4" id="permissionTabsContent">
+
+	                <!-- 团队账户 -->
+
+	                <div class="tab-pane fade show active" id="team">
+
+	                    <h5>子账户管理</h5>
+
+	                    <p class="text-muted">添加团队成员共同使用系统（需验证医院邮箱）</p>
+
+	                    
+
+	                    <div class="input-group mb-3">
+
+	                        <input type="email" class="form-control" placeholder="输入团队成员医院邮箱">
+
+	                        <button class="btn btn-primary">发送邀请</button>
+
+	                    </div>
+
+	                    
+
+	                    <div class="alert alert-info">
+
+	                        <i class="bi bi-info-circle"></i> 当前团队成员：3人（可添加最多5人）
+
+	                    </div>
+
+	                    
+
+	                    <div class="list-group mt-3">
+
+	                        <div class="list-group-item">
+
+	                            <div class="d-flex justify-content-between align-items-center">
+
+	                                <div>
+
+	                                    <h6 class="mb-1">李医生</h6>
+
+	                                    <small class="text-muted">li.doctor@hospital.com</small>
+
+	                                </div>
+
+	                                <span class="badge bg-success">已接受</span>
+
+	                            </div>
+
+	                        </div>
+
+	                        <div class="list-group-item">
+
+	                            <div class="d-flex justify-content-between align-items-center">
+
+	                                <div>
+
+	                                    <h6 class="mb-1">王医生（待处理）</h6>
+
+	                                    <small class="text-muted">wang.doctor@hospital.com</small>
+
+	                                </div>
+
+	                                <span class="badge bg-warning text-dark">邀请中</span>
+
+	                            </div>
+
+	                        </div>
+
+	                    </div>
+
+	                </div>
+
+	                
+
+	                <!-- 数据共享 -->
+
+	                <div class="tab-pane fade" id="sharing">
+
+	                    <h5>检测报告可见范围</h5>
+
+	                    <p class="text-muted">设置您的检测报告对其他人的可见性</p>
+
+	                    
+
+	                    <div class="form-check mb-3">
+
+	                        <input class="form-check-input" type="radio" name="sharing" id="public" checked>
+
+	                        <label class="form-check-label" for="public">
+
+	                            <strong>公开</strong> - 所有用户可查看（适合教学案例）
+
+	                        </label>
+
+	                    </div>
+
+	                    <div class="form-check mb-3">
+
+	                        <input class="form-check-input" type="radio" name="sharing" id="team">
+
+	                        <label class="form-check-label" for="team">
+
+	                            <strong>仅团队</strong> - 只有您的团队成员可查看
+
+	                        </label>
+
+	                    </div>
+
+	                    <div class="form-check mb-4">
+
+	                        <input class="form-check-input" type="radio" name="sharing" id="private">
+
+	                        <label class="form-check-label" for="private">
+
+	                            <strong>仅自己</strong> - 完全私有（默认设置）
+
+	                        </label>
+
+	                    </div>
+
+	                    
+
+	                    <button class="btn btn-primary">保存设置</button>
+
+	                </div>
+
+	                
+
+	                <!-- 智能备份 -->
+
+	                <div class="tab-pane fade" id="backup">
+
+	                    <h5>智能备份设置</h5>
+
+	                    <p class="text-muted">自动同步检测记录至医院HIS系统</p>
+
+	                    
+
+	                    <div class="alert alert-warning">
+
+	                        <i class="bi bi-exclamation-triangle"></i> 需要医院IT部门预先配置API连接
+
+	                    </div>
+
+	                    
+
+	                    <div class="form-check mb-3">
+
+	                        <input class="form-check-input" type="checkbox" id="autoBackup">
+
+	                        <label class="form-check-label" for="autoBackup">
+
+	                            启用自动备份（每日凌晨2点执行）
+
+	                        </label>
+
+	                    </div>
+
+	                    
+
+	                    <div class="mb-3">
+
+	                        <label class="form-label">选择目标HIS系统</label>
+
+	                        <select class="form-select" disabled>
+
+	                            <option>请先配置API连接</option>
+
+	                        </select>
+
+	                    </div>
+
+	                    
+
+	                    <button class="btn btn-primary" disabled>测试连接</button>
+
+	                    <button class="btn btn-outline-primary ms-2" disabled>保存设置</button>
+
+	                </div>
+
+	                
+
+	                <!-- 操作日志 -->
+
+	                <div class="tab-pane fade" id="logs">
+
+	                    <h5>参数修改历史</h5>
+
+	                    <p class="text-muted">记录所有关键操作以满足医疗合规要求</p>
+
+	                    
+
+	                    <div class="log-item">
+
+	                        <div class="d-flex justify-content-between">
+
+	                            <span><strong>修改碰撞阈值</strong> - 案例ID: CASE20240314-001</span>
+
+	                            <span class="text-muted">2024-03-14 15:20</span>
+
+	                        </div>
+
+	                        <p class="small text-muted mb-0">将阈值从1.5mm调整为1.2mm</p>
+
+	                    </div>
+
+	                    
+
+	                    <div class="log-item">
+
+	                        <div class="d-flex justify-content-between">
+
+	                            <span><strong>添加团队成员</strong> - li.doctor@hospital.com</span>
+
+	                            <span class="text-muted">2024-03-10 09:45</span>
+
+	                        </div>
+
+	                        <p class="small text-muted mb-0">邀请已发送，等待对方接受</p>
+
+	                    </div>
+
+	                    
+
+	                    <div class="log-item">
+
+	                        <div class="d-flex justify-content-between">
+
+	                            <span><strong>升级存储计划</strong> - 学术版</span>
+
+	                            <span class="text-muted">2024-03-05 14:30</span>
+
+	                        </div>
+
+	                        <p class="small text-muted mb-0">成功升级到学术版无限存储</p>
+
+	                    </div>
+
+	                    
+
+	                    <div class="text-center mt-3">
+
+	                        <button class="btn btn-sm btn-outline-primary">
+
+	                            查看完整日志
+
+	                        </button>
+
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </main>
+
+	 
+
+	    <!-- 页脚 -->
+
+	    <footer class="footer">
+
+	        <div class="container">
+
+	            <div class="row">
+
+	                <div class="col-md-4 mb-4">
+
+	                    <h5 class="text-white mb-3">OccluPrognos</h5>
+
+	                    <p class="mb-2">©2024 咬合预后通智能碰撞检测系统</p>
+
+	                    <a href="#">使用条款</a> | <a href="#">隐私政策</a>
+
+	                </div>
+
+	                <div class="col-md-4 mb-4">
+
+	                    <h5 class="text-white mb-3">数据管理</h5>
+
+	                    <p><a href="#">数据删除指引</a></p>
+
+	                    <p><a href="#">数据导出说明</a></p>
+
+	                </div>
+
+	                <div class="col-md-4">
+
+	                    <h5 class="text-white mb-3">帮助支持</h5>
+
+	                    <p>遇到问题？<a href="#">联系技术支持</a></p>
+
+	                    <p>查看<a href="#">系统使用指南</a></p>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </footer>
+
+	 
+
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+	    <script>
+
+	        // 初始化工具提示
+
+	        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+
+	        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+
+	            return new bootstrap.Tooltip(tooltipTriggerEl);
+
+	        });
+
+	        
+
+	        // 存储空间提示
+
+	        document.querySelector('.storage-used').addEventListener('mouseenter', function() {
+
+	            this.setAttribute('data-bs-toggle', 'tooltip');
+
+	            this.setAttribute('title', '已使用2.4GB/10GB');
+
+	        });
+
+	        
+
+	        // 成就徽章提示
+
+	        document.querySelector('.achievement-badge').addEventListener('mouseenter', function() {
+
+	            this.setAttribute('data-bs-toggle', 'tooltip');
+
+	            this.setAttribute('title', '连续登录7天获得');
+
+	        });
+
+	    </script>
+
+	</body>
+
+	</html>
