@@ -199,9 +199,10 @@ def rotate_around_custom_axis(mesh, best_theta_deg, principal_axis):
 # ==================== 主流程 ====================
 if __name__ == "__main__":
     # 1. 加载数据
-    impacted_tooth = load_and_preprocess_stl(r"C:\Users\Lenovo\Documents\WeChat Files\wxid_89te4g5q7xtn22\FileStorage\File\2025-05\11 contralateral tooth.stl")
-    mesh_contralateral=load_and_preprocess_stl(r"C:\Users\Lenovo\Documents\WeChat Files\wxid_89te4g5q7xtn22\FileStorage\File\2025-05\21 impacted tooth.stl")
-    alveolar_bone = load_and_preprocess_stl(r"C:\Users\Lenovo\Documents\WeChat Files\wxid_89te4g5q7xtn22\FileStorage\File\2025-05\alveolar bone.stl")
+    #添加你自己的文件地址
+    impacted_tooth = load_and_preprocess_stl()
+    mesh_contralateral=load_and_preprocess_stl()
+    alveolar_bone = load_and_preprocess_stl()
 
     # 2. 镜像对称处理
     mirrored_tooth = mirror_along_plane(mesh_contralateral, alveolar_bone)
